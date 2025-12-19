@@ -1,11 +1,8 @@
 import { Github, Linkedin, Twitter, Instagram, Mail } from 'lucide-react';
 import SocialLink from './SocialLink';
+import profileImage from '@/assets/profile.jpeg';
 
-interface ProfileCardProps {
-  profileImage?: string;
-}
-
-const ProfileCard = ({ profileImage }: ProfileCardProps) => {
+const ProfileCard = () => {
   const socialLinks = [
     {
       href: 'https://github.com/Sadrita404',
@@ -36,22 +33,19 @@ const ProfileCard = ({ profileImage }: ProfileCardProps) => {
   ];
 
   return (
-    <div className="glass-card rounded-3xl p-8 md:p-12 max-w-md w-full mx-4 animate-scale-in">
+    <div className="glass-card rounded-3xl p-8 md:p-12 max-w-md w-full mx-4 animate-[scale-in_0.6s_ease-out_forwards]">
       {/* Profile Image */}
       <div className="relative mx-auto w-32 h-32 md:w-40 md:h-40 mb-6 animate-float">
-        <div className="absolute inset-0 rounded-full bg-primary/20 animate-ripple" />
+        {/* Animated ring */}
+        <div className="absolute -inset-2 rounded-full border border-primary/30 animate-pulse-glow" />
+        <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 animate-ripple" />
+        
         <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-primary/50 glow-primary">
-          {profileImage ? (
-            <img
-              src={profileImage}
-              alt="Profile"
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <div className="w-full h-full bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center">
-              <span className="text-4xl md:text-5xl font-semibold text-foreground">S</span>
-            </div>
-          )}
+          <img
+            src={profileImage}
+            alt="Sadrita Neogi"
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
 
@@ -67,14 +61,19 @@ const ProfileCard = ({ profileImage }: ProfileCardProps) => {
 
       {/* Social Links */}
       <div className="flex justify-center items-center gap-4 md:gap-6 flex-wrap">
-        {socialLinks.map((link) => (
-          <SocialLink
+        {socialLinks.map((link, index) => (
+          <div
             key={link.label}
-            href={link.href}
-            icon={link.icon}
-            label={link.label}
-            isEmail={link.isEmail}
-          />
+            className="animate-[fade-in_0.5s_ease-out_forwards]"
+            style={{ animationDelay: `${0.1 + index * 0.1}s`, opacity: 0 }}
+          >
+            <SocialLink
+              href={link.href}
+              icon={link.icon}
+              label={link.label}
+              isEmail={link.isEmail}
+            />
+          </div>
         ))}
       </div>
     </div>

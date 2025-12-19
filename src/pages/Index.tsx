@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import WaterfallBackground from '@/components/WaterfallBackground';
 import ProfileCard from '@/components/ProfileCard';
+import ThemeToggle from '@/components/ThemeToggle';
 
 const Index = () => {
   return (
@@ -13,6 +14,7 @@ const Index = () => {
       
       <main className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <WaterfallBackground />
+        <ThemeToggle />
         
         <div className="relative z-10">
           <ProfileCard />
