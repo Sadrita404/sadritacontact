@@ -1,4 +1,4 @@
-# Live website -[ https://sadritacontact.lovable.app](https://sadritacontact-3ljdls0pr-sadritaneogi-6560s-projects.vercel.app/)
+# Live Link - https://sadritacontact-3ljdls0pr-sadritaneogi-6560s-projects.vercel.app/
 
 ---
 
